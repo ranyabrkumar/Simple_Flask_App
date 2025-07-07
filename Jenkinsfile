@@ -13,26 +13,22 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'python3 -m venv $VENV'
-                sh './venv/bin/pip install -r requirements.txt'
+                sh 'python3 -m venv ${VENV}'
+                sh './${VENV}/bin/pip install -r requirements.txt'
             }
         }
         
         stage('Deploy') {
-            // when {
-            //     branch 'main'
-            // }
             steps {
                 sh 'echo "Deploying to staging..."'
-                sh './venv/bin/python app.py &'
-                  sh 'sleep 5' // Wait for the app to start
-                
+                sh "nohup ./${VENV}/bin/python app.py > app.log 2>&1 &"
+                sh 'sleep 5' // Wait for the app to start
             }
         }
         stage('Test') {
             steps {
                 sh 'ls -l test/'
-                sh 'nohup ./venv/bin/pytest test/test-app.py &' || true
+                sh "./${VENV}/bin/pytest test/test-app.py"
             }
         }
     }
