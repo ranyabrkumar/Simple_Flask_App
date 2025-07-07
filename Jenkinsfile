@@ -19,8 +19,12 @@ pipeline {
         }
         
         stage('Deploy') {
+             when {
+                              branch 'main'
+                        }
             steps {
                 sh 'echo "Deploying to staging..."'
+                
                 sh "nohup ./${VENV}/bin/python app.py > app.log 2>&1 &"
                 sh 'sleep 5' // Wait for the app to start
             }
