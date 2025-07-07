@@ -16,8 +16,8 @@ groovy
                   stage('Test') {
                         steps {
                                 sh 'pwd'
-                                sh 'ls -l tests/'
-                                sh './venv/bin/pytest tests/' || true
+                                sh 'ls -l test/'
+                                sh './venv/bin/pytest test/' || true
                         }
                   }
                   stage('Deploy') {
