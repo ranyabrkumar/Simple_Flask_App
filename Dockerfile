@@ -11,3 +11,4 @@ COPY app.py .
 EXPOSE 5000
 #` Set environment variable for Flask
 CMD ["python", "app.py"]
+
