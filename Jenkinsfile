@@ -1,6 +1,6 @@
 groovy
       pipeline {
-            agent any
+            agent agent1
 
             environment {
                   VENV = 'venv'
