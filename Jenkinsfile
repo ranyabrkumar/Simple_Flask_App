@@ -28,7 +28,7 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'ls -l test/'
-                sh "./${VENV}/bin/pytest test/test-app.py"
+                sh "./${VENV}/bin/pytest test/test_app.py"
             }
         }
     }
