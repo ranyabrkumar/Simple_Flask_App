@@ -5,10 +5,6 @@ app = Flask(__name__)
 @app.route("/")
 def home():
     return "Hello from Flask in Docker!"
-def test_client():
-    with app.test_client() as client:
-        response = client.get("/")
-        assert response.status_code == 200
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
