@@ -1,2 +1,3 @@
 flask
 pytest
+python3.12-venv
