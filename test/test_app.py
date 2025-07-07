@@ -1,5 +1,6 @@
 import pytest
-from app import app
+from app import home, app
+
 
 def test_home_route():
     tester = app.test_client()
